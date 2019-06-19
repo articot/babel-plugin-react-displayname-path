@@ -56,12 +56,6 @@ function isKnownComponent(name, knownComponents) {
   return (name && knownComponents && knownComponents.indexOf(name) > -1)
 }
 
-function componentNameFromFilename(filename) {
-  var extension = pathMod.extname(filename);
-  var name = pathMod.basename(filename, extension)
-  return name
-}
-
 function shouldSetDisplayNameForFuncExpr(path, knownComponents) {
   // Parent must be either 'AssignmentExpression' or 'VariableDeclarator' or 'CallExpression' with a parent of 'VariableDeclarator'
   var id
@@ -154,8 +148,10 @@ function setDisplayNameAfter(state, path, nameNodeId, t, displayName) {
     displayName = nameNodeId.name
   }
 
-  var url = pathMod.relative(state.cwd, state.filename).replace(/\\/g, "/");
-  displayName = `${displayName} (${url})`;
+  if (state.cwd && state.filename) {
+    var componentPath = pathMod.relative(state.cwd, state.filename).replace(/\\/g, "/");
+    displayName = `${displayName} (${componentPath})`;
+  }
 
   var blockLevelStmnt
   path.find(function (path) {

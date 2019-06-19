@@ -3,13 +3,11 @@
   "version": "0.0.5",
   "description": "Automatically add displayName to all your components",
   "main": "index.js",
-  "dependencies": {},
   "devDependencies": {
-    "babel-core": "^6.14.0",
-    "babel-helper-plugin-test-runner": "^6.8.0",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.16.0",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
     "mocha": "^3.0.2",
     "standard": "^8.1.0"
   },
@@ -18,12 +16,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/opbeat/babel-plugin-add-react-displayname.git"
+    "url": "git+https://github.com/sergei-startsev/babel-plugin-react-displayname-path.git"
   },
   "author": "Ron Cohen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/opbeat/babel-plugin-add-react-displayname/issues"
+    "url": "https://github.com/sergei-startsev/babel-plugin-react-displayname-path/issues"
   },
-  "homepage": "https://github.com/opbeat/babel-plugin-add-react-displayname#readme"
+  "homepage": "https://github.com/sergei-startsev/babel-plugin-react-displayname-path#readme"
 }

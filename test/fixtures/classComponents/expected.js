@@ -1,36 +1,38 @@
-var _class, _temp;
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 import React from 'react';
 import { Component } from 'react';
-
-export let Component3a = class Component3a extends React.Component {
+export class Component3a extends React.Component {
   render() {
-    return React.createElement('div', null);
+    return React.createElement("div", null);
   }
-};
 
-Component3a.displayName = 'Component3a';
-let Component3b = class Component3b extends React.Component {
+}
+Component3a.displayName = "Component3a (test/fixtures/classComponents/input.js)";
+export default class Component3b extends React.Component {
   render() {
-    return React.createElement('div', null);
+    return React.createElement("div", null);
   }
-};
-Component3b.displayName = 'Component3b';
-export { Component3b as default };
 
-
-export let Component3c = class Component3c extends Component {
+}
+Component3b.displayName = "Component3b (test/fixtures/classComponents/input.js)";
+export class Component3c extends Component {
   render() {
-    return React.createElement('div', null);
+    return React.createElement("div", null);
   }
-};
 
-Component3c.displayName = 'Component3c';
-let Component3d = (_temp = _class = class Component3d extends Component {
+}
+Component3c.displayName = "Component3c (test/fixtures/classComponents/input.js)";
+
+class Component3d extends Component {
   render() {
-    return React.createElement('div', null);
+    return React.createElement("div", null);
   }
-}, _class.get = () => {
-  return React.createElement('div', null);
-}, _temp);
-Component3d.displayName = 'Component3d';
+
+}
+
+_defineProperty(Component3d, "get", () => {
+  return React.createElement("div", null);
+});
+
+Component3d.displayName = "Component3d (test/fixtures/classComponents/input.js)";
