@@ -1,7 +1,7 @@
 {
-  "name": "babel-plugin-add-react-displayname",
+  "name": "babel-plugin-react-displayname-path",
   "version": "0.0.5",
-  "description": "Automatically add displayName to all your components",
+  "description": "Automatically add displayName with component path to all your components",
   "main": "index.js",
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -19,6 +19,7 @@
     "url": "git+https://github.com/sergei-startsev/babel-plugin-react-displayname-path.git"
   },
   "author": "Ron Cohen",
+  "contributors": ["Aliaksei Sapach", "Siarhei Startsau"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sergei-startsev/babel-plugin-react-displayname-path/issues"
