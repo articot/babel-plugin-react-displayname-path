@@ -8,8 +8,7 @@
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
-    "mocha": "^3.0.2",
-    "standard": "^8.1.0"
+    "mocha": "^3.0.2"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha"
@@ -19,7 +18,10 @@
     "url": "git+https://github.com/sergei-startsev/babel-plugin-react-displayname-path.git"
   },
   "author": "Ron Cohen",
-  "contributors": ["Aliaksei Sapach", "Siarhei Startsau"],
+  "contributors": [
+    "Aliaksei Sapach",
+    "Siarhei Startsau"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sergei-startsev/babel-plugin-react-displayname-path/issues"
