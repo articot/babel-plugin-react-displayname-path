@@ -1,3 +1,5 @@
+/* eslint-env node, mocha */
+
 var babel = require('@babel/core');
 var fs = require('fs');
 var path = require('path');

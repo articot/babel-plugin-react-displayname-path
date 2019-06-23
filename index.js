@@ -23,7 +23,7 @@ function transform(babel) {
                     if (
                         path.parentPath.node.type === 'ExportDefaultDeclaration'
                     ) {
-                        if (path.node.id == null) {
+                        if (path.node.id === null) {
                             // An anonymous function declaration in export default declaration.
                             // Transform `export default function () { ... }`
                             // to `var _uid1 = function () { .. }; export default __uid;`
@@ -49,7 +49,7 @@ function transform(babel) {
                         );
                     } else if (
                         path.parentPath.node.type === 'Program' ||
-                        path.parentPath.node.type == 'ExportNamedDeclaration'
+                        path.parentPath.node.type === 'ExportNamedDeclaration'
                     ) {
                         setDisplayNameAfter(
                             state,
@@ -101,8 +101,8 @@ function shouldSetDisplayNameForFuncExpr(path, knownComponents) {
     if (
         path.parentPath.node.type === 'AssignmentExpression' &&
         path.parentPath.node.left.type !== 'MemberExpression' && // skip static members
-        path.parentPath.parentPath.node.type == 'ExpressionStatement' &&
-        path.parentPath.parentPath.parentPath.node.type == 'Program'
+        path.parentPath.parentPath.node.type === 'ExpressionStatement' &&
+        path.parentPath.parentPath.parentPath.node.type === 'Program'
     ) {
         id = path.parentPath.node.left;
     } else {
@@ -140,8 +140,8 @@ function classHasRenderMethod(path) {
     var members = path.node.body.body;
     for (var i = 0; i < members.length; i++) {
         if (
-            members[i].type == 'ClassMethod' &&
-            members[i].key.name == 'render'
+            members[i].type === 'ClassMethod' &&
+            members[i].key.name === 'render'
         ) {
             return true;
         }
@@ -214,7 +214,6 @@ function setDisplayNameAfter(state, path, nameNodeId, t, displayName) {
     });
 
     if (blockLevelStmnt) {
-        var trailingComments = blockLevelStmnt.node.trailingComments;
         delete blockLevelStmnt.node.trailingComments;
 
         var setDisplayNameStmn = t.expressionStatement(
