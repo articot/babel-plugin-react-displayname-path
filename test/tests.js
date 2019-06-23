@@ -3,9 +3,9 @@ var fs = require("fs")
 var path = require("path")
 var fixturesDir = path.join(__dirname, "fixtures")
 
-var pluginPath = path.join(__dirname, '../../babel-plugin-react-displayname-path')
+var pluginPath = path.join(__dirname, '../')
 var assert = require('assert');
-describe('add-react-displayname transform', function() {
+describe('react-displayname-path transform', function() {
 
   fs.readdirSync(fixturesDir).forEach(function (fixture) {
     var actual = transformFile(path.join(fixturesDir, fixture, 'input.js'))
