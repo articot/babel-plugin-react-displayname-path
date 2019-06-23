@@ -1,13 +1,9 @@
-var babel = require("babel-core")
+var babel = require("@babel/core")
 var fs = require("fs")
 var path = require("path")
 var fixturesDir = path.join(__dirname, "fixtures")
 
-// var inputFilename = path.join(fixturesDir, "input.js")
-// var expected = readFile(path.join(fixturesDir, "expected.js"))
-
-
-var pluginPath = path.join(__dirname, '../../babel-plugin-add-react-displayname')
+var pluginPath = path.join(__dirname, '../../babel-plugin-react-displayname-path')
 var assert = require('assert');
 describe('add-react-displayname transform', function() {
 
@@ -29,10 +25,11 @@ function readFile(filename) {
 
 function transformFile(filename) {
   return babel.transformFileSync(filename, {
-    presets: ['react', 'stage-1'],
+    presets: ['@babel/preset-react'],
     plugins: [
       [pluginPath, {'knownComponents': ['Component5a', 'Component5b', 'Component5c']}],
-      'transform-decorators-legacy',
+      ['@babel/plugin-proposal-decorators', {decoratorsBeforeExport: true}],
+      ['@babel/plugin-proposal-class-properties']
     ]
   }).code
 }

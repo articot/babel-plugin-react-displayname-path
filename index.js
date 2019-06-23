@@ -6,7 +6,7 @@ function transform (babel) {
     visitor: {
       ClassDeclaration: function (path, state) {
         if (classHasRenderMethod(path)) {
-          setDisplayNameAfter(path, path.node.id, babel.types)
+          setDisplayNameAfter(state, path, path.node.id, babel.types)
         }
       },
       FunctionDeclaration: function (path, state) {        
@@ -26,9 +26,9 @@ function transform (babel) {
               path.node.id = id
               displayName = name
             }
-            setDisplayNameAfter(path, path.node.id, babel.types, displayName)
+            setDisplayNameAfter(state, path, path.node.id, babel.types, displayName)
           }else if(path.parentPath.node.type === 'Program' || path.parentPath.node.type == 'ExportNamedDeclaration') {
-            setDisplayNameAfter(path, path.node.id, babel.types, displayName)
+            setDisplayNameAfter(state, path, path.node.id, babel.types, displayName)
           }
         }
       },
@@ -36,7 +36,7 @@ function transform (babel) {
         if(shouldSetDisplayNameForFuncExpr(path, state.opts.knownComponents)) {
           var id = findCandidateNameForExpression(path)
           if (id) {
-            setDisplayNameAfter(path, id, babel.types)
+            setDisplayNameAfter(state, path, id, babel.types)
           }
         }
       },
@@ -44,7 +44,7 @@ function transform (babel) {
         if(shouldSetDisplayNameForFuncExpr(path, state.opts.knownComponents)) {
           var id = findCandidateNameForExpression(path)
           if (id) {
-            setDisplayNameAfter(path, id, babel.types)
+            setDisplayNameAfter(state, path, id, babel.types)
           }
         }
       }
@@ -54,12 +54,6 @@ function transform (babel) {
 
 function isKnownComponent(name, knownComponents) {
   return (name && knownComponents && knownComponents.indexOf(name) > -1)
-}
-
-function componentNameFromFilename(filename) {
-  var extension = pathMod.extname(filename);
-  var name = pathMod.basename(filename, extension)
-  return name
 }
 
 function shouldSetDisplayNameForFuncExpr(path, knownComponents) {
@@ -149,9 +143,14 @@ function doesReturnJSX (body) {
   return false
 }
 
-function setDisplayNameAfter(path, nameNodeId, t, displayName) {
+function setDisplayNameAfter(state, path, nameNodeId, t, displayName) {
   if (!displayName) {
     displayName = nameNodeId.name
+  }
+
+  if (state.cwd && state.filename) {
+    var componentPath = pathMod.relative(state.cwd, state.filename).replace(/\\/g, "/");
+    displayName = `${displayName} (${componentPath})`;
   }
 
   var blockLevelStmnt
