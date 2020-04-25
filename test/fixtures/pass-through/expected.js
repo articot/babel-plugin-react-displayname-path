@@ -20,7 +20,7 @@ class f3 {
 
 }
 
-var f4 = React.createElement("div", null, (() => React.createElement("span", null))()); // Known component which doesn't sit directly on the `Program` node get left alone
+var f4 = /*#__PURE__*/React.createElement("div", null, (() => /*#__PURE__*/React.createElement("span", null))()); // Known component which doesn't sit directly on the `Program` node get left alone
 
 {
   var Component5c = function () {
@@ -33,7 +33,7 @@ var f4 = React.createElement("div", null, (() => React.createElement("span", nul
 // ---------------------
 // High-order things will be hard to catch
 
-var jsxChunk = React.createElement("div", null, value);
+var jsxChunk = /*#__PURE__*/React.createElement("div", null, value);
 
 function UnsupportedComponent1({
   value
@@ -48,13 +48,13 @@ var a = {
   Component1d: function ({
     value
   }) {
-    return React.createElement("div", null, value);
+    return /*#__PURE__*/React.createElement("div", null, value);
   }
 };
 
 var external = function () {
   var internal = function () {
-    return React.createElement("div", null);
+    return /*#__PURE__*/React.createElement("div", null);
   };
 
   return internal;

@@ -7,7 +7,7 @@ var fixturesDir = path.join(__dirname, 'fixtures');
 
 var pluginPath = path.join(__dirname, '../');
 var assert = require('assert');
-describe('react-displayname-path transform', function() {
+describe('react-displayname-path', function() {
     fs.readdirSync(fixturesDir).forEach(function(fixture) {
         var actual = transformFile(path.join(fixturesDir, fixture, 'input.js'));
         var expected = readFile(path.join(fixturesDir, fixture, 'expected.js'));

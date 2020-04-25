@@ -1,14 +1,14 @@
-// Exported stateless componenet
+// Exported stateless component
 export function Component1a(value) {
   return <div>{value}</div>
 }
 
-// Stateless componenet
+// Stateless component
 function Component1b(value) {
   return <div>{value}</div>
 }
 
-// Stateless componenet used in a variable declaration
+// Stateless component used in a variable declaration
 var Component1c = function (value) {
   return <div>{value}</div>
 }
@@ -18,7 +18,7 @@ export var Component1d = function (value) {
   return <div>{value}</div>
 }
 
-// Stateless componenet used in an assignment
+// Stateless component used in an assignment
 var Component1e;
 Component1e = function (value) {
   return <div>{value}</div>

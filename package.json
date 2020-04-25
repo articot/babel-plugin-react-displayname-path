@@ -4,11 +4,11 @@
   "description": "Babel plugin for React to display name with file path prefix",
   "main": "index.js",
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
-    "@babel/plugin-proposal-decorators": "^7.4.4",
-    "@babel/preset-react": "^7.0.0",
-    "eslint": "^6.0.0",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/preset-react": "^7.9.4",
+    "eslint": "^6.8.0",
     "mocha": "^3.0.2",
     "prettier": "^1.18.2"
   },

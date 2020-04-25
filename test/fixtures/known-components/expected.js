@@ -3,13 +3,13 @@ function Component5a() {
   return "some string";
 }
 
-Component5a.displayName = "Component5a (test/fixtures/knownComponents/input.js)";
+Component5a.displayName = "Component5a (test/fixtures/known-components/input.js)";
 
 var Component5b = function () {
   return "some string";
 };
 
-Component5b.displayName = "Component5b (test/fixtures/knownComponents/input.js)";
+Component5b.displayName = "Component5b (test/fixtures/known-components/input.js)";
 
 // Known component's name used inside another function
 var Component5c = function () {
@@ -18,4 +18,4 @@ var Component5c = function () {
   return Component5c;
 }();
 
-Component5c.displayName = "Component5c (test/fixtures/knownComponents/input.js)";
+Component5c.displayName = "Component5c (test/fixtures/known-components/input.js)";
