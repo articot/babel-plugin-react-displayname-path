@@ -4,12 +4,12 @@ var pathMod = require('path');
 function transform(babel) {
     return {
         visitor: {
-            ClassDeclaration: function(path, state) {
+            ClassDeclaration: function (path, state) {
                 if (classHasRenderMethod(path)) {
                     setDisplayNameAfter(state, path, path.node.id, babel.types);
                 }
             },
-            FunctionDeclaration: function(path, state) {
+            FunctionDeclaration: function (path, state) {
                 if (
                     doesReturnJSX(path.node.body) ||
                     (path.node.id &&
@@ -61,7 +61,7 @@ function transform(babel) {
                     }
                 }
             },
-            FunctionExpression: function(path, state) {
+            FunctionExpression: function (path, state) {
                 if (
                     shouldSetDisplayNameForFuncExpr(
                         path,
@@ -74,7 +74,7 @@ function transform(babel) {
                     }
                 }
             },
-            ArrowFunctionExpression: function(path, state) {
+            ArrowFunctionExpression: function (path, state) {
                 if (
                     shouldSetDisplayNameForFuncExpr(
                         path,
@@ -154,7 +154,7 @@ function classHasRenderMethod(path) {
 // crawl up the ancestry looking for possible candidates for displayName inference
 function findCandidateNameForExpression(path) {
     var id;
-    path.find(function(path) {
+    path.find(function (path) {
         if (path.isAssignmentExpression()) {
             id = path.node.left;
             // } else if (path.isObjectProperty()) {
@@ -206,7 +206,7 @@ function setDisplayNameAfter(state, path, nameNodeId, t, displayName) {
     }
 
     var blockLevelStmnt;
-    path.find(function(path) {
+    path.find(function (path) {
         if (path.parentPath.isBlock()) {
             blockLevelStmnt = path;
             return true;
