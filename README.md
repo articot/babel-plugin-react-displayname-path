@@ -1,12 +1,12 @@
 # babel-plugin-react-displayname-path
 
-Babel plugin for React to display name with file path prefix. Automatically detects and sets `displayName` for React components.
+Babel plugin to display React components names with file path prefix. Automatically detects and sets `displayName` property for React components.
 This is useful for having meaningful component names show up in production builds of React apps.
 
-Babel already does this for `React.createClass` style components, this adds support for the two other kinds of component definitions:
+The plugin adds support for the following components definitions:
 
-- ES6-classes style components.
-- Stateless components that return JSX.
+- Function Components that return JSX.
+- Class Components.
 
 ## Install
  - `yarn add babel-plugin-react-displayname-path`
