@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-react-displayname-path",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Babel plugin to display React components names with file path prefix",
   "main": "index.js",
   "devDependencies": {
